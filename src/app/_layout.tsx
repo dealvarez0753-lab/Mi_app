@@ -1,18 +1,26 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from "expo-router";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function Layout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#1A5276",
+        },
+        headerTintColor: "#ffffff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        contentStyle: {
+          backgroundColor: "#F0F7FA",
+        },
+      }}
+    >
+      <Stack.Screen name="index" options={{ title: "Agencia de Viajes" }} />
+      <Stack.Screen name="formulario" options={{ title: "Cotizar Paquete" }} />
+      <Stack.Screen name="resultado" options={{ title: "Resumen de Reserva" }} />
+      <Stack.Screen name="imagenes" options={{ title: "Destinos Destacados" }} />
+      <Stack.Screen name="contacto" options={{ title: "Atención al Viajero" }} />
+    </Stack>
   );
 }
