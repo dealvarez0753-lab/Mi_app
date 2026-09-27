@@ -43,7 +43,7 @@ export default function Inicio() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* PORTADA PRINCIPAL (HERO) */}
+      /* PORTADA PRINCIPAL */
       <View style={styles.hero}>
         <Image
           source={{
@@ -60,7 +60,7 @@ export default function Inicio() {
         </View>
       </View>
 
-      {/* BIENVENIDA */}
+      /* BIENVENIDA */
       <View style={styles.saludoBox}>
         <View>
           <Text style={styles.saludoTitulo}>¡Hola viajero!</Text>
@@ -72,7 +72,7 @@ export default function Inicio() {
         </View>
       </View>
 
-      {/* RESUMEN */}
+      /* RESUMEN */
       <View style={styles.resumen}>
         <View style={styles.resumenItem}>
           <Text style={styles.resumenNumero}>+40</Text>
@@ -92,7 +92,7 @@ export default function Inicio() {
 
       <Text style={styles.seccionTitulo}>Servicios de Viaje</Text>
 
-      {/* LOS 3 BOTONES ALINEADOS EN UNA FILA */}
+      /* LOS 3 BOTONES ALINEADOS EN UNA FILA */
       <View style={styles.filaBotones}>
         <BotonHorizontal
           icono="📝"
@@ -116,7 +116,24 @@ export default function Inicio() {
         />
       </View>
 
-
+      /* VIAJEROS REGISTRADOS (consulta a Supabase) */
+      <Pressable
+        style={({ pressed }) => [
+          styles.destacado,
+          pressed && styles.botonPresionado,
+        ]}
+        onPress={() => router.push("/registros")}
+      >
+        <View style={styles.destacadoIcono}>
+          <Text style={styles.destacadoEmoji}>🧳</Text>
+        </View>
+        <View style={styles.destacadoInfo}>
+          <Text style={styles.destacadoTitulo}>Viajeros Registrados</Text>
+          <Text style={styles.destacadoTexto}>
+            Consulta las personas registradas y sus destinos soñados.
+          </Text>
+        </View>
+      </Pressable>
 
       <Text style={styles.footer}>Viajes.com · Desarrollo Móvil</Text>
     </ScrollView>
