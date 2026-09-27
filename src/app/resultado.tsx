@@ -5,7 +5,7 @@ export default function Resultado() {
   const router = useRouter();
 
   // Datos devueltos por Supabase después del INSERT (Paso 10)
-  const {nombre, correo, telefono, ciudad, destino, tipoViaje } =
+  const {nombre, correo, telefono, viajeros, ciudad, destino, tipoViaje } =
     useLocalSearchParams();
 
   return (
@@ -26,6 +26,10 @@ export default function Resultado() {
 
         <Text style={styles.label}>Teléfono / WhatsApp</Text>
         <Text style={styles.valor}>{telefono}</Text>
+
+        <Text style={styles.label}>Número de viajeros</Text>
+        <Text style={styles.valor}>{viajeros}</Text>
+
 
         <Text style={styles.label}>Ciudad de origen</Text>
         <Text style={styles.valor}>{ciudad}</Text>

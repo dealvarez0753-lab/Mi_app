@@ -30,6 +30,7 @@ export default function FormularioViaje() {
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [telefono, setTelefono] = useState("");
+  const [viajeros, setViajeros] = useState("");
   const [ciudad, setCiudad] = useState("");
   const [destino, setDestino] = useState("");
   const [tipoViaje, setTipoViaje] = useState("");
@@ -55,6 +56,7 @@ export default function FormularioViaje() {
       !nombre.trim() ||
       !correo.trim() ||
       !telefono.trim() ||
+      !viajeros.trim() ||
       !ciudad.trim() ||
       !destino.trim() ||
       !tipoFinal
@@ -101,6 +103,7 @@ export default function FormularioViaje() {
             nombre: nombre.trim(),
             correo: correo.trim(),
             telefono: telefono.trim(),
+            viajeros: viajeros.trim(),
             ciudad: ciudad.trim(),
             destino_favorito: destino.trim(),
             tipo_viaje: tipoFinal,
@@ -122,6 +125,7 @@ export default function FormularioViaje() {
           nombre: nombre.trim(),
           correo: correo.trim(),
           telefono: telefono.trim(),
+          viajeros: viajeros.trim(),
           ciudad: ciudad.trim(),
           destino: destino.trim(),
           tipoViaje: tipoFinal,
@@ -132,6 +136,7 @@ export default function FormularioViaje() {
       setNombre("");
       setCorreo("");
       setTelefono("");
+      setViajeros("");
       setCiudad("");
       setDestino("");
       setTipoViaje("");
@@ -172,7 +177,7 @@ export default function FormularioViaje() {
           Reserva tu proxima aventura
         </Text>
 
-        {/* NOMBRE */}
+      /* NOMBRE */
         <Text style={styles.label}>Nombre completo</Text>
 
         <TextInput
@@ -184,7 +189,7 @@ export default function FormularioViaje() {
           autoCapitalize="words"
         />
 
-        {/* CORREO */}
+        /* CORREO */
         <Text style={styles.label}>Correo electrónico</Text>
 
         <TextInput
@@ -197,7 +202,7 @@ export default function FormularioViaje() {
           autoCapitalize="none"
         />
 
-        {/* TELÉFONO */}
+        /* TELÉFONO */
         <Text style={styles.label}>Teléfono / WhatsApp</Text>
 
         <TextInput
@@ -210,19 +215,33 @@ export default function FormularioViaje() {
           maxLength={15}
         />
 
-        {/* CIUDAD DE ORIGEN */}
+        /*VIAJEROS*/
+
+         <Text style={styles.label}>Número de viajeros</Text>
+
+        <TextInput
+          style={styles.input}
+          placeholder="Ej: 2"
+          placeholderTextColor="#8C9CAE"
+          value={viajeros}
+          onChangeText={setViajeros}
+          autoCapitalize="words"
+        />
+
+
+        /* CIUDAD DE ORIGEN */
         <Text style={styles.label}>Ciudad de origen</Text>
 
         <TextInput
           style={styles.input}
-          placeholder="Ej: Pasto, Bogotá, Cali..."
+          placeholder="Ej: Pasto, Bogotá..."
           placeholderTextColor="#8C9CAE"
           value={ciudad}
           onChangeText={setCiudad}
           autoCapitalize="words"
         />
 
-        {/* DESTINO */}
+        /* DESTINO */
         <Text style={styles.label}>Destino deseado</Text>
 
         <TextInput
@@ -234,7 +253,7 @@ export default function FormularioViaje() {
           autoCapitalize="words"
         />
 
-        {/* TIPO DE VIAJE */}
+        /* TIPO DE VIAJE */
         <Text style={styles.label}>Tipo de viaje</Text>
 
         <View style={styles.chipsContainer}>
@@ -275,7 +294,7 @@ export default function FormularioViaje() {
           />
         )}
 
-        {/* BOTÓN REGISTRAR */}
+        /* BOTÓN REGISTRAR */
         <Pressable
           style={({ pressed }) => [
             styles.boton,
@@ -301,7 +320,7 @@ export default function FormularioViaje() {
         </Pressable>
       </View>
 
-      {/* PIE */}
+/* PIE */
       <Text style={styles.footer}>
         VIAJES.COM
       </Text>

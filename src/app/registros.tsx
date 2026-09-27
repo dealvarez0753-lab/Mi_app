@@ -16,6 +16,7 @@ type Viajero = {
   nombre: string;
   correo: string;
   telefono: string;
+  viajeros: string;
   ciudad: string;
   destino_favorito: string;
   tipo_viaje: string | null;
@@ -121,6 +122,10 @@ export default function Registros() {
                   {item.tipo_viaje || "Sin especificar"}
                 </Text>
               </View>
+
+             <Text style={styles.detalle}>
+              👥 {item.viajeros} {item.viajeros === "1" ? "viajero" : "viajeros"}
+              </Text>
             </View>
           </View>
         )}
