@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js"; // esta es una funcion que crea el cliente de conexion a supabase
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import "react-native-url-polyfill/auto"; //agrega a react native funciones para procesar direcciones URL
 
 const supabaseUrl = "https://ovvkjiiczdwolfytfeor.supabase.co"; //"TU_URL_DE_SUPABASE"
@@ -9,6 +10,7 @@ export const supabase = createClient(
   supabaseAnonKey,
   {
     auth: {
+      storage: AsyncStorage,
       persistSession: false,
       autoRefreshToken: false,
       detectSessionInUrl: false,

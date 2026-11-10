@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { supabase } from "../../lib/supabase";
 
 function BotonHorizontal({
   icono,
@@ -41,13 +42,21 @@ function BotonHorizontal({
 export default function Inicio() {
   const router = useRouter();
 
+  // Paso 12.2. Función para cerrar sesión
+  const cerrarSesion = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      /* PORTADA PRINCIPAL */
+      {/* PORTADA PRINCIPAL */}
       <View style={styles.hero}>
         <Image
           source={{
-            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmgH_-VdYHnqlPiN5SgllK3g0CZuJ20xH7-khBky9k0VddSju72qC8k4o&s=10https://images.unsplash.com/photo-1488646953014-85cb44e25828",
+            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmgH_-VdYHnqlPiN5SgllK3g0CZuJ20xH7-khBky9k0VddSju72qC8k4o&s=10",
           }}
           style={styles.imagenHero}
         />
@@ -60,7 +69,7 @@ export default function Inicio() {
         </View>
       </View>
 
-      /* BIENVENIDA */
+      {/* BIENVENIDA */}
       <View style={styles.saludoBox}>
         <View>
           <Text style={styles.saludoTitulo}>¡Hola viajero!</Text>
@@ -72,7 +81,7 @@ export default function Inicio() {
         </View>
       </View>
 
-      /* RESUMEN */
+      {/* RESUMEN */}
       <View style={styles.resumen}>
         <View style={styles.resumenItem}>
           <Text style={styles.resumenNumero}>+40</Text>
@@ -92,37 +101,37 @@ export default function Inicio() {
 
       <Text style={styles.seccionTitulo}>Servicios de Viaje</Text>
 
-      /* LOS 3 BOTONES ALINEADOS EN UNA FILA */
+      {/* LOS 3 BOTONES ALINEADOS EN UNA FILA */}
       <View style={styles.filaBotones}>
         <BotonHorizontal
           icono="📝"
           titulo="Formulario de reservas"
           colorFondo="#1A5276" // Azul Marino
-          onPress={() => router.push("/formulario")}
+          onPress={() => router.push("/formulario" as any)}
         />
 
         <BotonHorizontal
           icono="🏝️"
           titulo="Galeria de destinos"
           colorFondo="#0E86D4" // Azul Caribe
-          onPress={() => router.push("/imagenes")}
+          onPress={() => router.push("/imagenes" as any)}
         />
 
         <BotonHorizontal
           icono="📍"
           titulo="Contacto"
           colorFondo="#D97706" // Naranja Sol
-          onPress={() => router.push("/contacto")}
+          onPress={() => router.push("/contacto" as any)}
         />
       </View>
 
-      /* VIAJEROS REGISTRADOS (consulta a Supabase) */
+      {/* VIAJEROS REGISTRADOS (consulta a Supabase) */}
       <Pressable
         style={({ pressed }) => [
           styles.destacado,
           pressed && styles.botonPresionado,
         ]}
-        onPress={() => router.push("/registros")}
+        onPress={() => router.push("/registros" as any)}
       >
         <View style={styles.destacadoIcono}>
           <Text style={styles.destacadoEmoji}>🧳</Text>
@@ -133,6 +142,11 @@ export default function Inicio() {
             Consulta las personas registradas y sus destinos soñados.
           </Text>
         </View>
+      </Pressable>
+
+      {/* Paso 12.3. Botón Cerrar sesión */}
+      <Pressable style={styles.botonCerrar} onPress={cerrarSesion}>
+        <Text style={styles.textoCerrar}>Cerrar sesión</Text>
       </Pressable>
 
       <Text style={styles.footer}>Viajes.com · Desarrollo Móvil</Text>
@@ -326,6 +340,18 @@ const styles = StyleSheet.create({
     color: "#37474F",
     fontSize: 12,
     lineHeight: 16,
+  },
+  // Paso 12.4. Estilos del botón Cerrar sesión
+  botonCerrar: {
+    backgroundColor: "#8E3B46",
+    padding: 14,
+    borderRadius: 14,
+    alignItems: "center",
+    marginTop: 20,
+  },
+  textoCerrar: {
+    color: "#FFFFFF",
+    fontWeight: "bold",
   },
   footer: {
     textAlign: "center",

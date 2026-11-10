@@ -3,6 +3,7 @@
     "name": "MiPrimerApp",
     "slug": "MiPrimerApp",
     "version": "1.0.0",
+    "sdkVersion": "58.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "miprimerapp",
@@ -11,6 +12,7 @@
       "icon": "./assets/expo.icon"
     },
     "android": {
+      "package": "com.diana.MiPrimerApp",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -32,11 +34,21 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      "expo-font",
+      "expo-image",
+      "expo-status-bar",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4a10afde-8886-4470-8a8e-ab1d6038bc21"
+      }
     }
   }
 }

@@ -12,7 +12,7 @@ import {
   View,
 } from "react-native";
 
-import { supabase } from "../lib/supabase";
+import { supabase } from "../../lib/supabase";
 
 // Opciones para el campo "Tipo de viaje"
 const TIPOS_VIAJE = [
@@ -177,7 +177,7 @@ export default function FormularioViaje() {
           Reserva tu proxima aventura
         </Text>
 
-      /* NOMBRE */
+        {/* NOMBRE */}
         <Text style={styles.label}>Nombre completo</Text>
 
         <TextInput
@@ -189,7 +189,7 @@ export default function FormularioViaje() {
           autoCapitalize="words"
         />
 
-        /* CORREO */
+        {/* CORREO */}
         <Text style={styles.label}>Correo electrónico</Text>
 
         <TextInput
@@ -202,7 +202,7 @@ export default function FormularioViaje() {
           autoCapitalize="none"
         />
 
-        /* TELÉFONO */
+        {/* TELÉFONO */}
         <Text style={styles.label}>Teléfono / WhatsApp</Text>
 
         <TextInput
@@ -215,9 +215,8 @@ export default function FormularioViaje() {
           maxLength={15}
         />
 
-        /*VIAJEROS*/
-
-         <Text style={styles.label}>Número de viajeros</Text>
+        {/* VIAJEROS */}
+        <Text style={styles.label}>Número de viajeros</Text>
 
         <TextInput
           style={styles.input}
@@ -225,11 +224,10 @@ export default function FormularioViaje() {
           placeholderTextColor="#8C9CAE"
           value={viajeros}
           onChangeText={setViajeros}
-          autoCapitalize="words"
+          keyboardType="numeric"
         />
 
-
-        /* CIUDAD DE ORIGEN */
+        {/* CIUDAD DE ORIGEN */}
         <Text style={styles.label}>Ciudad de origen</Text>
 
         <TextInput
@@ -241,7 +239,7 @@ export default function FormularioViaje() {
           autoCapitalize="words"
         />
 
-        /* DESTINO */
+        {/* DESTINO */}
         <Text style={styles.label}>Destino deseado</Text>
 
         <TextInput
@@ -253,7 +251,7 @@ export default function FormularioViaje() {
           autoCapitalize="words"
         />
 
-        /* TIPO DE VIAJE */
+        {/* TIPO DE VIAJE */}
         <Text style={styles.label}>Tipo de viaje</Text>
 
         <View style={styles.chipsContainer}>
@@ -294,7 +292,7 @@ export default function FormularioViaje() {
           />
         )}
 
-        /* BOTÓN REGISTRAR */
+        {/* BOTÓN REGISTRAR */}
         <Pressable
           style={({ pressed }) => [
             styles.boton,
@@ -320,7 +318,7 @@ export default function FormularioViaje() {
         </Pressable>
       </View>
 
-/* PIE */
+      {/* PIE */}
       <Text style={styles.footer}>
         VIAJES.COM
       </Text>

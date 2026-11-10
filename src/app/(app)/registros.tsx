@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 
-import { supabase } from "../lib/supabase";
+import { supabase } from "../../lib/supabase";
 
 // Estructura de una fila de la tabla clientes_agencia
 type Viajero = {

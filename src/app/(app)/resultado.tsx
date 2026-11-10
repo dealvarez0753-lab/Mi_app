@@ -5,7 +5,7 @@ export default function Resultado() {
   const router = useRouter();
 
   // Datos devueltos por Supabase después del INSERT (Paso 10)
-  const {nombre, correo, telefono, viajeros, ciudad, destino, tipoViaje } =
+  const { nombre, correo, telefono, viajeros, ciudad, destino, tipoViaje } =
     useLocalSearchParams();
 
   return (
@@ -17,7 +17,6 @@ export default function Resultado() {
       </Text>
 
       <View style={styles.card}>
-
         <Text style={styles.label}>Titular del viaje</Text>
         <Text style={styles.valor}>{nombre}</Text>
 
@@ -29,7 +28,6 @@ export default function Resultado() {
 
         <Text style={styles.label}>Número de viajeros</Text>
         <Text style={styles.valor}>{viajeros}</Text>
-
 
         <Text style={styles.label}>Ciudad de origen</Text>
         <Text style={styles.valor}>{ciudad}</Text>
@@ -43,7 +41,7 @@ export default function Resultado() {
 
       <Pressable
         style={({ pressed }) => [styles.boton, pressed && styles.presionado]}
-        onPress={() => router.push("/registros")}
+        onPress={() => router.push("/registros" as any)}
       >
         <Text style={styles.botonTexto}>Ver Viajeros Registrados</Text>
       </Pressable>
@@ -53,7 +51,7 @@ export default function Resultado() {
           styles.botonSecundario,
           pressed && styles.presionado,
         ]}
-        onPress={() => router.replace("/")}
+        onPress={() => router.replace("/(app)" as any)}
       >
         <Text style={styles.botonSecundarioTexto}>Volver al inicio</Text>
       </Pressable>
